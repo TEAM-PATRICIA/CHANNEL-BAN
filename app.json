@@ -1,0 +1,41 @@
+{
+    "name": "Channelban",
+    "description": "A Pyrogram Telegram userbot to safeguard your vc..",
+    "keywords": [
+        "telegram",
+        "stream",
+        "video-calls",
+        "pyrogram",
+        "group-calls",
+        "python",
+        "plugin",
+        "modular",
+        "pytgcalls"
+      ],
+    "stack": "container",
+    "repository": "https://github.com/TEAM-PATRICIA/CHANNEL-BAN",
+    "success_url": "/",
+    "logo": "https://telegra.ph/file/8b9cfbe9aaf44f7ff4468.jpg",
+    "website": "https://github.com/EverythingSuckz/tgvc-video-tests",
+    "env": {
+        "API_ID": {
+            "description": "Get this value from https://my.telegram.org"
+        },
+        "API_HASH": {
+            "description": "Get this value from https://my.telegram.org"
+        },        
+        "STRING_SESSION": {
+            "description": "Get this value from https://replit.com/@ayrahikari/pyrogram-session-maker"
+        }
+    },
+    "buildpacks": [{
+        "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+      }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+  }
