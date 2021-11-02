@@ -1,6 +1,6 @@
 from config import Config
 
-from pyrogram import Client
+from pyrogram import Client, idle
 from pyrogram.raw.types import UpdateGroupCallParticipants
 from pyrogram.raw.types import UpdateGroupCallParticipants, PeerChannel
 from pyrogram.raw.functions.channels import EditBanned
@@ -33,3 +33,7 @@ async def hemheupdet(client, update, users, chats):
 
                 except Exception as e:
                     await client.send_message(chat, f"{e} \n\n{x.peer}")
+
+bot.start()
+print("Bot Is Started!")
+idle()
