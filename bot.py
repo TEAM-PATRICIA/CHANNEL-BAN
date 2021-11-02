@@ -29,10 +29,10 @@ async def hemheupdet(client, update, users, chats):
                                 send_games=True,
                                 send_inline=True,
                                 embed_links=True)))
-                    await client.send_message(chat, f"Successfully Banned {int(str(-100) + str(x.peer.channel_id))}")
+                    await client.send_message(banchat, f"Successfully Banned {int(str(-100) + str(x.peer.channel_id))}")
 
                 except Exception as e:
-                    await client.send_message(chat, f"{e} \n\n{x.peer}")
+                    await client.send_message(banchat, f"{e} \n\n{x.peer}")
 
 bot.start()
 print("Bot Is Started!")
