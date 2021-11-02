@@ -1,5 +1,5 @@
 from config import Config
-
+import telegram
 from pyrogram import Client, idle
 from pyrogram.raw.types import UpdateGroupCallParticipants
 from pyrogram.raw.types import UpdateGroupCallParticipants, PeerChannel
