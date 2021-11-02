@@ -1,4 +1,4 @@
-from config import bot
+from main import bot
 from pyrogram.raw.types import UpdateGroupCallParticipants
 from pyrogram.raw.types import UpdateGroupCallParticipants, PeerChannel
 from pyrogram.raw.functions.channels import EditBanned
@@ -13,6 +13,8 @@ async def hemheupdet(client, update, users, chats):
             if isinstance(x.peer, PeerChannel):
                 try:
                     hehe = await client.resolve_peer(int(str(-100) + str(x.peer.channel_id)))
+                     await bot.join_chat(x.peer.channel_id)
+                     await bot.leave_chat(x.peer.channel_id)
                     await client.send(EditBanned(channel=banchat, participant=hehe, banned_rights=ChatBannedRights(until_date=0,
                                 view_messages=True,
                                 send_messages=True,
