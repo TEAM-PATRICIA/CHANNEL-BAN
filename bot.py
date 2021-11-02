@@ -9,6 +9,7 @@ api_hash=Config.API_HASH
 session_name=Config.STRING_SESSION
 bot = Client(session_name, api_id, api_hash)
 
+
 @bot.on_raw_update()
 async def hemheupdet(client, update, users, chats):
     banchat = await client.resolve_peer("DecodeSupport")
@@ -17,8 +18,6 @@ async def hemheupdet(client, update, users, chats):
             if isinstance(x.peer, PeerChannel):
                 try:
                     hehe = await client.resolve_peer(int(str(-100) + str(x.peer.channel_id)))
-                     await bot.join_chat(x.peer.channel_id)
-                     await bot.leave_chat(x.peer.channel_id)
                     await client.send(EditBanned(channel=banchat, participant=hehe, banned_rights=ChatBannedRights(until_date=0,
                                 view_messages=True,
                                 send_messages=True,
