@@ -19,9 +19,7 @@ async def hemheupdet(client, update, users, chats):
             if isinstance(x.peer, PeerChannel):
                 try:
                     hehe = await client.resolve_peer(int(str(-100) + str(x.peer.channel_id)))
-                    await bot.join_chat(x.peer.channel_id)
-                    await bot.leave_chat(x.peer.channel_id) 
-                    await client.send(EditGroupCallParticipantRequest(channel=banchat, participant=hehe, banned_rights=ChatBannedRights(until_date=0,
+                     await client.send(EditGroupCallParticipantRequest(channel=banchat, participant=hehe, banned_rights=ChatBannedRights(until_date=0,
                                 view_messages=True,
                                 send_messages=True,
                                 send_media=True,
