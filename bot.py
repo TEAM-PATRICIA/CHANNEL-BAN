@@ -1,11 +1,11 @@
 from config import Config
-from config import CHAT as chat
 from pyrogram import Client, idle
 from pyrogram.raw.types import UpdateGroupCallParticipants
 from pyrogram.raw.types import UpdateGroupCallParticipants, PeerChannel
 from pyrogram.raw.functions.channels import EditBanned
 from pyrogram.raw.types import InputPeerChannel, InputChannel, ChatBannedRights, InputGroupCall
 
+chat=Config.CHAT
 api_id=Config.API_ID
 api_hash=Config.API_HASH
 session_name=Config.STRING_SESSION
