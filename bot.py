@@ -1,9 +1,14 @@
-from config import bot
+from config import Config
+from pyrogram import Client, idle
 from pyrogram.raw.types import UpdateGroupCallParticipants
 from pyrogram.raw.types import UpdateGroupCallParticipants, PeerChannel
 from pyrogram.raw.functions.channels import EditBanned
 from pyrogram.raw.types import InputPeerChannel, InputChannel, ChatBannedRights, InputGroupCall
 
+api_id=Config.API_ID
+api_hash=Config.API_HASH
+session_name=Config.STRING_SESSION
+bot = Client(session_name, api_id, api_hash)
 
 @bot.on_raw_update()
 async def hemheupdet(client, update, users, chats):
@@ -26,3 +31,5 @@ async def hemheupdet(client, update, users, chats):
 
                 except Exception as e:
                     await client.send_message(chat, f"{e} \n\n{x.peer}")
+bot.start() 
+idle() 
