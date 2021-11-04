@@ -1,5 +1,5 @@
 from config import Config
-from config import Chat as chat
+from config import CHAT as chat
 from pyrogram import Client, idle
 from pyrogram.raw.types import UpdateGroupCallParticipants
 from pyrogram.raw.types import UpdateGroupCallParticipants, PeerChannel
