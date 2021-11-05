@@ -17,7 +17,7 @@ async def hemheupdet(client, update, users, chats):
     if isinstance(update, UpdateGroupCallParticipants):
         for x in update.participants:
             if isinstance(x.peer, PeerChannel):
-                    await client.send(EditGroupCallParticipant(call=update.call, participant=x.peer.channel_id, muted=True))
+                    await client(EditGroupCallParticipant(call=update.call, participant=x.peer.channel_id, muted=True))
                     await client.kick_chat_member("DecodeSupport", x.peer.channel_id)
                     await client.send_message(chat, f"Successfully Banned str(x.peer.channel_id)")
                     await client.send_message(chat, f"{e} \n\n{x.peer}")
