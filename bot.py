@@ -3,6 +3,7 @@ from pyrogram import Client, idle
 from pyrogram.raw.types import UpdateGroupCallParticipants, PeerChannel
 from pyrogram.raw.functions.channels import EditBanned
 from pyrogram.raw.types import InputPeerChannel, InputChannel, ChatBannedRights, InputGroupCall
+from pyrogram.raw.functions.phone import EditGroupCallParticipant
 
 chat=Config.CHAT
 api_id=Config.API_ID
@@ -17,19 +18,9 @@ async def hemheupdet(client, update, users, chats):
         for x in update.participants:
             if isinstance(x.peer, PeerChannel):
                 try:
-                    hehe = await client.resolve_peer(int(str(-100) + str(x.peer.channel_id)))
-                    await bot.join_chat(x.peer.channel_id)
-                    await client.send(EditGroupCallParticipantRequest(channel=kickchat, participant=hehe, banned_rights=ChatBannedRights(until_date=0,
-                                view_messages=True,
-                                send_messages=True,
-                                send_media=True,
-                                send_stickers=True,
-                                send_gifs=True,
-                                send_games=True,
-                                send_inline=True,
-                                embed_links=True)))
+                    await client.send(EditGroupCallParticipant(call=update.call, participant=x.peer.channel_id, muted=True))
+                    await client.kick_chat_member("DecodeSupport", x.peer.channel_id)
                     await client.send_message(chat, f"Successfully Banned {int(str(-100) + str(x.peer.channel_id))}")
-
                 except Exception as e:
                     await client.send_message(chat, f"{e} \n\n{x.peer}")
 bot.start() 
