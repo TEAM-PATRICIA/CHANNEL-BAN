@@ -1,6 +1,5 @@
 from config import Config
 from pyrogram import Client, idle
-from pyrogram.raw.types import UpdateGroupCallParticipants
 from pyrogram.raw.types import UpdateGroupCallParticipants, PeerChannel
 from pyrogram.raw.functions.channels import EditBanned
 from pyrogram.raw.types import InputPeerChannel, InputChannel, ChatBannedRights, InputGroupCall
@@ -20,7 +19,7 @@ async def hemheupdet(client, update, users, chats):
                 try:
                     hehe = await client.resolve_peer(int(str(-100) + str(x.peer.channel_id)))
                     await bot.join_chat(x.peer.channel_id)
-                    await client.send(EditGroupCallParticipantRequest(channel=mutpeer, participant=hehe, banned_rights=ChatBannedRights(until_date=0,
+                    await client.send(EditGroupCallParticipantRequest(channel=kickchat, participant=hehe, banned_rights=ChatBannedRights(until_date=0,
                                 view_messages=True,
                                 send_messages=True,
                                 send_media=True,
