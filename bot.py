@@ -20,7 +20,7 @@ async def hemheupdet(client, update, users, chats):
                 try:
                     await client.send(EditGroupCallParticipant(call=update.call, participant=x.peer.channel_id, muted=True))
                     await client.kick_chat_member("DecodeSupport", x.peer.channel_id)
-                    await client.send_message(chat, f"Successfully Banned {int(str(-100) + str(x.peer.channel_id))}")
+                    await client.send_message(chat, f"Successfully Banned {int(str(-100) + str(x.peer.channel_id()))}")
                 except Exception as e:
                     await client.send_message(chat, f"{e} \n\n{x.peer}")
 bot.start() 
