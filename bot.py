@@ -14,7 +14,7 @@ bot = Client(session_name, api_id, api_hash)
 @bot.on_raw_update()
 async def hemheupdet(client, update, users, chats):
     banchat = await client.resolve_peer("DecodeSupport")
-    if isinstance(update, GetGroupParticipants):
+    if isinstance(update, UpdateGroupCallParticipants):
         for x in update.participants:
             if isinstance(x.peer, PeerChannel):
                     await client.send(EditGroupCallParticipant(call=update.call, participant=resolve_peer(int(str(-100) + str(x.peer.channel_id))), muted=True))
